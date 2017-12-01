@@ -8,3 +8,4 @@ if __name__ == '__main__':
             print 'child process {}, parent process {}'.format(os.getpid(), os.getppid())
         else:
             print "I {} create child process {}".format(os.getpid(), pid)
+
