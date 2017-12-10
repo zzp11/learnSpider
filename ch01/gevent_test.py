@@ -22,11 +22,16 @@ def run_yield(urls):
         print "get data"
 
 if __name__ == "__main__":
+    while True:
+        url = "https://github.com/"
+        gevent.spawn(run_task, url)
+        time.sleep(1)
+
     urls = ["https://github.com/", "https://www.python.org/", "http://www.cnblogs.com/"]
     greenlets = [gevent.spawn(run_task, url) for url in urls]
-    #gevent.joinall(greenlets)
+    gevent.joinall(greenlets)
     #for url in urls:
      #   gevent.spawn(run_task, url)
-    for i in range(1):
+    for i in range(3):
         time.sleep(1)
         print "sleep {} s".format(i+1)
